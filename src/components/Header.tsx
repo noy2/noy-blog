@@ -13,7 +13,7 @@ const Header = () => {
           noy&apos;s Blog
         </p>
         <div className="mb-3" />
-        <p className="text-base md: text-lg text-personal text-center">
+        <p className="text-base md:text-lg text-personal text-center">
           description
         </p>
       </div>
