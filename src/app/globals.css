@@ -2,5 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css");
+@import url("https://rsms.me/inter/inter.css");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code&display=swap");
+
+* {
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Inter",
+    "Spoqa Han Sans Neo", "Segoe UI", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
 body {
 }
