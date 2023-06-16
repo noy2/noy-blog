@@ -7,27 +7,32 @@ interface Props {
   title: string;
   description: string | null;
   date: string;
-  tags: string[];
-  link: string;
-  // thumbnail:
+  slug: string;
+  tags?: string[];
+  image?: string;
 }
 
-const PostCard = ({ title, description, date, link, tags }: Props) => {
+const PostCard = ({ title, description, date, slug, tags, image }: Props) => {
   const renderTag = useCallback(
-    (tag: string) => <Tag key={`${link}_${tag}`}>{tag}</Tag>,
-    [link]
+    (tag: string) => <Tag key={`${slug}_${tag}`}>{tag}</Tag>,
+    [slug]
   );
 
   return (
-    <Link href={link ?? "/"}>
-      <h3 className="mb-2 text-xl md:text-2xl font-bold">{title}</h3>
-      <p className="mb-2">{description}</p>
-      {tags && (
-        <div className="mt-4 mb-2 flex flex-row space-x-2">
-          {tags.map(renderTag)}
+    <Link href={`/blog/${slug}`}>
+      <div className="mb-6 flex flex-row place-content-between">
+        <div>
+          <h3 className="mb-1 text-xl md:text-2xl font-bold">{title}</h3>
+          <p className="mb-1">{description}</p>
+          <small className="text-sm text-gray-500">{date}</small>
+          {tags && (
+            <div className="mt-2 flex flex-row space-x-2">
+              {tags.map(renderTag)}
+            </div>
+          )}
         </div>
-      )}
-      <small className="text-sm text-gray-500">{date}</small>
+        {/* {image && <Image alt="" src={image} />} */}
+      </div>
     </Link>
   );
 };
