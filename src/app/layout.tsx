@@ -1,19 +1,23 @@
 import Header from "@/components/Header";
 import "./globals.css";
 import Footer from "@/components/Footer";
-
-export const metadata = {
-  title: "noy's Blog",
-  description: "개발하다 생긴일",
-};
+import metadata from "@/data/metadata";
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const meta = {
+    title: metadata.title,
+    description: metadata.description,
+    author: metadata.author,
+  };
   return (
     <html lang="en">
+      <title>{meta.title}</title>
+      <meta content={meta.description} name="description" />
+      <meta property="og:site_name" content={meta.author} />
       <body>
         <div className="min-h-screen flex flex-col">
           <Header />

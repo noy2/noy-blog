@@ -1,4 +1,5 @@
 import Blog from "@/pages/Blog";
+import RootLayout from "./layout";
 
 export default function Home() {
   return (
