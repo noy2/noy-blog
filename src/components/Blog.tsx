@@ -1,6 +1,4 @@
-import RootLayout from "@/app/layout";
 import { allPosts } from "../../.contentlayer/generated";
-import { InferGetStaticPropsType } from "next";
 import PostCard from "@/components/PostCard";
 
 const Blog = () => {
