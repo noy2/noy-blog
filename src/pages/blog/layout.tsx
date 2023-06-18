@@ -30,9 +30,9 @@ const Layout = ({
           <meta property="og:site_name" content={meta.author} />
         </Head>
         <Header />
-        <div className="mb-10 md:mb-16"></div>
+        <div className="mb-4 md:mb-8"></div>
         <main className="w-screen flex-1">{children}</main>
-        <div className="mb-10 md:mb-16"></div>
+        <div className="mb-4 md:mb-8"></div>
         <Footer />
       </div>
     </>
