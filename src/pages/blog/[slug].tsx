@@ -4,6 +4,7 @@ import { allPosts } from "../../../.contentlayer/generated";
 import Layout from "./layout";
 import { useCallback } from "react";
 import Tag from "@/components/Tag";
+import Link from "next/link";
 
 const Post = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const MDXComponent = useMDXComponent(post.body.code);
@@ -19,6 +20,7 @@ const Post = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <Layout Meta={customMeta}>
       <div className="mx-auto mb-12 px-6 container">
+        <Link href="/">Click</Link>
         <div className="mx-auto w-full max-w-screen-sm">
           <h1 className="mb-2 md:mb-4 text-2xl md:text-4xl leading-normal font-extrabold">
             {post.title}

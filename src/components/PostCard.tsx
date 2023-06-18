@@ -31,7 +31,6 @@ const PostCard = ({ title, description, date, slug, tags, image }: Props) => {
             </div>
           )}
         </div>
-        {/* {image && <Image alt="" src={image} />} */}
       </div>
     </Link>
   );
