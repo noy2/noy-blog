@@ -21,6 +21,15 @@ export default function RootLayout({
       <body>
         <div className="min-h-screen flex flex-col">
           <Header />
+          <div className="mx-auto container flex flex-col max-w-screen-sm bg-gray-200 px-8 py-6 rounded-lg mb-8">
+            <p className="text-xl md:text-2xl text-gray-900 font-bold">
+              noy&apos;s Blog
+            </p>
+            <div className="mb-2" />
+            <p className="text-sm md:text-base text-gray-500">
+              개발하다가 생긴일들을 정리하고 글을 써보는 공간입니다.
+            </p>
+          </div>
           <div className="mb-4 md:mb-8"></div>
           <main className="w-screen flex-1">{children}</main>
           <div className="mb-4 md:mb-8"></div>

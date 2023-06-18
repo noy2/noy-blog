@@ -20,7 +20,7 @@ const PostCard = ({ title, description, date, slug, tags, image }: Props) => {
 
   return (
     <Link href={`/blog/${slug}`}>
-      <div className="mb-6 flex flex-row place-content-between">
+      <div className="mb-8 flex flex-row place-content-between">
         <div>
           <h3 className="mb-1 text-xl md:text-2xl font-bold">{title}</h3>
           <p className="mb-1">{description}</p>
