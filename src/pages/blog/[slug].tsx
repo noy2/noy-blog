@@ -21,7 +21,6 @@ const Post = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <Layout Meta={customMeta}>
       <div className="mx-auto mb-12 px-6 container">
-        <Link href="/">Click</Link>
         <div className="mx-auto w-full max-w-screen-sm">
           <h1 className="mb-2 md:mb-4 text-2xl md:text-4xl leading-normal font-extrabold">
             {post.title}
