@@ -19,7 +19,7 @@ const PostCard = ({ title, description, date, slug, tags, image }: Props) => {
   );
 
   return (
-    <Link href={`/blog/${slug}`}>
+    <a href={`/blog/${slug}`}>
       <div className="mb-8 flex flex-row place-content-between">
         <div>
           <h3 className="mb-1 text-xl md:text-2xl font-bold">{title}</h3>
@@ -32,7 +32,7 @@ const PostCard = ({ title, description, date, slug, tags, image }: Props) => {
           )}
         </div>
       </div>
-    </Link>
+    </a>
   );
 };
 
