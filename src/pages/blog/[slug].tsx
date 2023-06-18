@@ -5,6 +5,7 @@ import Layout from "./layout";
 import { useCallback } from "react";
 import Tag from "@/components/Tag";
 import Link from "next/link";
+import { browser } from "process";
 
 const Post = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const MDXComponent = useMDXComponent(post.body.code);
