@@ -9,11 +9,11 @@ interface navType {
 const navLinks: navType[] = [
   {
     path: "/",
-    title: "Blog",
+    title: "Post",
   },
   {
     path: "https://noy2.github.io/",
-    title: "About Me",
+    title: "Resume",
   },
 ];
 
@@ -21,7 +21,11 @@ const GlobalNavigation = () => {
   const renderNavigation = useCallback(({ path, title }: navType) => {
     const item = <li>{title}</li>;
     const component = (
-      <Link key={path} href={path} className="text-personal">
+      <Link
+        key={path}
+        href={path}
+        className="text-slate-900 hover:bg-gray-100 px-3 py-2 rounded-md font-bold"
+      >
         {item}
       </Link>
     );
@@ -29,9 +33,7 @@ const GlobalNavigation = () => {
   }, []);
   return (
     <nav>
-      <ul className="flex text-base text-black space-x-6">
-        {navLinks.map(renderNavigation)}
-      </ul>
+      <ul className="flex text-base">{navLinks.map(renderNavigation)}</ul>
     </nav>
   );
 };
