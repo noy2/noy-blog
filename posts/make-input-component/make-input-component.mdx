@@ -1,0 +1,43 @@
+---
+title: Input 컴포넌트 만들어보기
+date: 2022-10-23
+description: input 컴포넌트 안에 버튼 넣기
+tags: ["React"]
+---
+
+## Input 컴포넌트를 만들다가 생긴일
+
+개인 프로젝트를 위해 input 컴포넌트를 만들고 있었는데, 아이콘 버튼이 들어간 input 컴포넌트를 만들어야 했다. input 태그 자체에만 스타일링을 했던 나는 input 안에 어떻게 버튼을 집어넣어야 할까 고민이었다.
+
+## 생각보다 쉽네?
+
+`div` 안에 입력만 받는 `input` 과 `button` 을 넣어서 해결할 수 있었는데, input 태그에만 스타일을 집어 넣었던 나는 스타일링을 새로 해야 했다.
+
+## 왜?
+
+input 컴포넌트의 State; hover, focus, disable 같은 상태를 알려주기 위해 border에 색을 넣어 사용하고 있었다. hover와 default 상태는 크게 문제가 없었는데 focus와 disable에서 문제가 발생했다.
+
+### focus
+
+생각보다 원인은 간단했다. `div` 안에 있는 `input` 을 focus하고 있는 것이지, `div` 를 focus하고 있는게 아니었기 때문에 `div`에 적용된 focus 스타일은 적용될리 없었다. [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-within)을 뒤적이다 `:focus_within` 이라는 pseudo 클래스를 발견하여 읽어보았는데, 이 클래스는 포커스를 받았거나, 포커스를 받은 요소를 포함하는 요소를 나타낸다고 했다. `input` 이 focus 받았을때 `div` 가 focus받은 것 처럼 스타일을 적용시켜줄 수 있다는 말이었기 때문에 이 클래스를 사용하여 focus는 해결했다.
+
+```css
+&:focus-within {
+  box-shadow: var(
+    --input-focus-border,
+    inset 0px 0px 0px 2px ${colors.primary500}
+  );
+}
+```
+
+### disable
+
+focus와 마찬가지로 `input` 이 disable되는 것이지, `div` 가 disable되는 것이 아니었기 때문에, `div`를 disable 상태처럼 보일 수 있도록 해주는 작업이 필요했다. `input`을 disable된 색으로 바꾸고, `div` 에 포인터 이벤트를 발생시키지 않도록 적용했더니 성공적으로 disable 된 `input` 컴포넌트를 만들 수 있었다.
+
+```css
+${(p) =>
+    p.disabled &&
+    css`
+      pointer-events: none;
+    `};
+```
