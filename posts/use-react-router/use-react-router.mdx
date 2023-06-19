@@ -1,0 +1,76 @@
+---
+title: React Router 사용해보기
+date: 2022-10-29
+description: 프로젝트에 react router를 적용해보자.
+tags: ["React"]
+---
+
+여러개의 페이지를 만들었는데, 페이지 이동 기능을 react에서는 react router를 통해 처리 할 수 있다고 한다. react router를 사용하기 전에 라우팅부터 알아봤다.
+
+## 라우팅
+
+간단하게 사용자가 요청한 URL에 따라 해당 URL에 맞는 페이지를 보여주는 것이라고 생각할 수 있다. react에는 라우팅 관련 라이브러리가 꽤 있었는데, 가장 많이 쓰이는 react router를 사용했다.
+
+### React는 SPA(Single Page Application) 방식이다.
+
+- 기존 웹 페이지(MPA) 처럼 여러개의 페이지를 사용하고 새로운 페이지를 로드하는 방식이 아니다.
+- 새로운 페이지를 로드하지 않고 하나의 페이지 안에서 필요한 데이터만 가져오는 형태이다.
+
+React-Router는 신규 페이지를 불러오지 않고 각각의 URL에 따라 선택된 데이터를 하나의 페이지에서 렌더링할 수 있게 도와주는 라이브러리이다.
+
+## React-Router
+
+사용자가 입력한 주소를 감지하는 역할을 하며, 여러개의 환경에서 동작할 수 있도록 여러 종류의 라우터 컴포넌트를 제공하는데, 이중 가장 많이 쓰이는 컴포넌트는 `BrowserRouter` 와 `HashRouter` 라고 한다. 진행중인 프로젝트에서는 `BrowserRouter` 를 사용했다.
+
+### 설치
+
+- npm
+
+```
+npm install react-router-dom
+```
+
+- yarn
+
+```
+yarn add react-router-dom
+```
+
+### 적용하기
+
+```jsx
+function App() {
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/templates/:itemId" element={<More />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/favorite" element={<Favorite />} />
+          <Route path="/edit" element={<Edit />} />
+          <Route path="/edit/:itemId" element={<FolioEdit />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
+}
+```
+
+`BrowserRouter` 를 사용할 것이기 때문에 이 컴포넌트로 감싸주고 `Routes`, `Route` 컴포넌트를 사용해주었다.
+
+- `Routes`컴포넌트는 여러 Route들을 감싸서 그 중에 규칙이 일치하는 하나의 라우트만 렌더링 시켜주는 컴포넌트이다.
+- `Route` 컴포는트는 path에 경로, element에는 렌더링할 컴포넌트를 넣어주면 된다.
+
+### URL 파라미터도 써보자
+
+위의 코드에서 `Route` 의 path를 보면 `/templates/:itemId` 를 볼 수있는데, itemId가 1이라면 `/templates/1` 로 이동할 수 있게 해준다.
+
+```jsx
+import { useParams } from "react-router-dom";
+
+const { 파라미터명 } = useParams(); // const 변수명 = useParams().파라미터명;
+```
+
+파라미터를 사용해줄 컴포넌트로 이동해 위 코드를 추가해주면 된다.
