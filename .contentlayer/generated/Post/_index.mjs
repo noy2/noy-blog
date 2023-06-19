@@ -2,7 +2,8 @@
 
 import addShowPassword__addShowPasswordMdx from './add-show-password__add-show-password.mdx.json' assert { type: 'json' }
 import makeInputComponent__makeInputComponentMdx from './make-input-component__make-input-component.mdx.json' assert { type: 'json' }
-import validateEmail__validateEmailMdx from './validate-email__validate-email.mdx.json' assert { type: 'json' }
 import useReactRouter__useReactRouterMdx from './use-react-router__use-react-router.mdx.json' assert { type: 'json' }
+import validateEmail__validateEmailMdx from './validate-email__validate-email.mdx.json' assert { type: 'json' }
+import reactWithAxios__reactWithAxiosMdx from './react-with-axios__react-with-axios.mdx.json' assert { type: 'json' }
 
-export const allPosts = [addShowPassword__addShowPasswordMdx, makeInputComponent__makeInputComponentMdx, validateEmail__validateEmailMdx, useReactRouter__useReactRouterMdx]
+export const allPosts = [addShowPassword__addShowPasswordMdx, makeInputComponent__makeInputComponentMdx, useReactRouter__useReactRouterMdx, validateEmail__validateEmailMdx, reactWithAxios__reactWithAxiosMdx]
