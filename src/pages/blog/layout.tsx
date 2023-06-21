@@ -31,7 +31,7 @@ const Layout = ({
         </Head>
         <Header />
         <div className="mb-4 md:mb-8"></div>
-        <main className="w-screen flex-1">{children}</main>
+        <main className="flex-1">{children}</main>
         <div className="mb-4 md:mb-8"></div>
         <Footer />
       </div>

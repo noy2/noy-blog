@@ -3,7 +3,7 @@ import GlobalNavigation from "./GlobalNavigation";
 
 const Header = () => {
   return (
-    <header className="pt-8 pb-8 w-screen bg-white">
+    <header className="pt-8 pb-8 bg-white">
       <div className="max-w-screen-sm flex mx-auto container">
         <GlobalNavigation />
       </div>
