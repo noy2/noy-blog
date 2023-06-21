@@ -1,0 +1,33 @@
+---
+title: React에서 html 가져오기
+date: 2022-12-12
+description: React에서 html 불러와 사용해보자
+tags: ["Javascript", "JSX"]
+---
+
+## React에서 HTML파일을 사용해보자
+
+진행중인 토이프로젝트에서 html을 받아와 그려줘야 하는 화면이 있었다. 어떻게 하면 react 에서 html을 받아와 그려줄 수 있을까 찾아보던중 `dangerouslysetinnerhtml` 을 발견했는데, 이를 통해 해결할 수 있었다.
+
+## dangerouslySetInnerHTML
+
+[공식문서](https://ko.reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml)에 의하면, `dangerouslySetInnerHTML` 은 브라우저 DOM에서 innerHTML 을 사용하기 위한 React의 대체 방법이라고 한다. 코드 내에서 HTML을 설정하는 것은 사이트간 스크립팅 공격에 쉽게 노출될 수 있기 때문에 React에서 HTML을 직접 설정할 수는 있지만, 위험하다는 것을 상기시키기 위해 `dangerouslySetInnerHTML` 을 작성하고 `__html` 키로 객체를 전달해야 한다고 한다.
+
+### 예제
+
+```JavaScript
+function createMarkup() {
+  return {__html: 'First &middot; Second'};
+}
+
+function MyComponent() {
+  return <div dangerouslySetInnerHTML={createMarkup()} />;
+```
+
+### 코드
+
+나는 서버에서 전달해주는 html을 적용시켜야 했기 때문에 이렇게 작성했다.
+
+```JavaScript
+<RenderHtml dangerouslySetInnerHTML={{ __html: html }} />
+```
